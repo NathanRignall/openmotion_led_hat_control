@@ -1,14 +1,13 @@
-add_library(led_hat_control INTERFACE)
+add_library(openmotion_led_hat_control INTERFACE)
 
-target_include_directories(led_hat_control
-    INTERFACE
+target_include_directories(openmotion_led_hat_control INTERFACE
     ./include)
 
-target_sources(led_hat_control
+target_sources(openmotion_led_hat_control
     INTERFACE
-    led_hat_control.cpp
+    openmotion_led_hat_control.cpp
 )
 
-target_link_libraries(led_hat_control
+target_link_libraries(openmotion_led_hat_control
     INTERFACE
 )
