@@ -58,6 +58,40 @@ namespace open_motion
 		}
 	}
 
+	int led_hat::set_ir_led_brightness(uint8_t value)
+	{
+		uint8_t local_buffer[2] = {0};
+
+		enum i2c_register command = IR_BRIGHT;
+		local_buffer[0] = uint8_t(command);
+
+		local_buffer[1] = value;
+
+		if (write(led_hat::i2c_file, local_buffer, 2) != 2)
+		{
+			return -1;
+		}
+
+		return 0;
+	}
+
+	int led_hat::set_ring_led_brightness(uint8_t value)
+	{
+		uint8_t local_buffer[2] = {0};
+
+		enum i2c_register command = RING_BRIGHT;
+		local_buffer[0] = uint8_t(command);
+
+		local_buffer[1] = value;
+
+		if (write(led_hat::i2c_file, local_buffer, 2) != 2)
+		{
+			return -1;
+		}
+
+		return 0;
+	}
+
 	uint8_t led_hat::get_ir_led_brightness()
 	{
 		uint8_t local_buffer[1] = {0};
